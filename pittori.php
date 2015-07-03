@@ -2,9 +2,12 @@
 <html lang="it">
 
     <head>
-
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -95,15 +98,15 @@
                 <div class="box">
                     <div class="col-lg-12">
                         <hr>
-                        <h2 class="intro-text text-center">' . $pittori[$i][1] .
-                        ' <strong>'. $pittori[$i][2] . '</strong>' .
+                        <h2 class="intro-text text-center">' . utf8_encode($pittori[$i][1]) .
+                        ' <strong>'. utf8_encode($pittori[$i][2]) . '</strong>' .
                     '</h2>
                         <hr>
-                        <img class="img-responsive img-border img-left fotoPittore" src="' . $pittori[$i][5] . '" alt="">' .
+                        <img class="img-responsive img-border img-left fotoPittore" src="' . utf8_encode($pittori[$i][5]) . '" alt="">' .
                     '<hr class="visible-xs">
-                        <p>' . $pittori[$i][3] . '</p>'.
-                    '<a href="pittore.php?idPittore='. $pittori[$i][0] .'"><button type="button" class="btn btn-default bottoneDX">Galleria pittore</button></a>
-                        </br><strong class="text-right">'. $pittori[$i][4] .'</strong>
+                        <p>' . utf8_encode($pittori[$i][3]) . '<br><strong class="text-right">'. utf8_encode($pittori[$i][4]) .'</strong></p>'.
+                    '<a href="pittore.php?idPittore='. utf8_encode($pittori[$i][0]) .'"><button type="button" class="btn btn-default bottoneDX">Galleria pittore</button></a>
+                        </br>
                     </div>
                 </div>
             </div>';
