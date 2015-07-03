@@ -96,7 +96,7 @@
                     <div class="col-lg-12">
                         <hr>
                         <h2 class="intro-text text-center">' . $pittori[$i][1] .
-                        '<strong>'. $pittori[$i][2] . '</strong>' .
+                        ' <strong>'. $pittori[$i][2] . '</strong>' .
                     '</h2>
                         <hr>
                         <img class="img-responsive img-border img-left fotoPittore" src="' . $pittori[$i][5] . '" alt="">' .
