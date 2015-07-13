@@ -41,11 +41,8 @@
         <!--<div class="brand">Gruppo Artistico Spinea</div>
         <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>-->
         
-        <div>
-            <a href="index.html">
-                <img class="img-responsive img-full" src="img/logoDefinitivo.jpg" alt="">
-            </a>
-        </div>
+        <!-- Logo -->
+        <?php require("logo.php"); ?>
 
         <!-- Navigation -->
         <?php require("navbar.php"); ?>

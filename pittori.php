@@ -42,11 +42,9 @@
 
     <body>
 
-        <div>
-            <a href="index.html">
-                <img class="img-responsive img-full" src="img/logoDefinitivo.jpg" alt="">
-            </a>
-        </div>
+        <!-- Logo -->
+        <?php require("logo.php"); ?>
+        
         <!-- Navigation -->
         <?php require("navbar.php"); ?>
 
