@@ -87,21 +87,19 @@
             <?php
             require_once 'ClassiPHP/EstraiDati.php';
             $estrai = new EstraiDati();
-            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", $campoFiltro, $valore, $fetch)
+            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "iDPittori", $_GET["idPittore"], PDO::FETCH_NUM);
             ?>
             <div class="row">
                 <div class="box">
                     <div class="col-lg-12">
                         <hr>
                         <h2 class="intro-text text-center">Artista
-                            <strong>Gino Pierino</strong>
+                            <strong><?php echo utf8_encode($pittore[0][1]) . " " . utf8_encode($pittore[0][2]) ?></strong>
                         </h2>
                         <hr>
                         <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
                         <hr class="visible-xs">
-                        <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
-                        <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                        <p><?php echo utf8_encode($pittore[0][3]) ?></p>
                     </div>
                 </div>
             </div>
@@ -110,19 +108,45 @@
                 <div class="box">
                     <div class="col-lg-12">
                         <hr>
-                        <h2 class="intro-text text-center">Gino Pierino
+                        <h2 class="intro-text text-center"><?php echo utf8_encode($pittore[0][1]) . " " . utf8_encode($pittore[0][2]) ?>
                             <strong>Galleria</strong>
                         </h2>
                         <hr>
 
                     </div>
                     <!--un quadro-->
+                    <?php
+                    $quadri = $estrai->estraiContenutoCondizione("*", "Quadri", "Pittori_idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
+                    for ($i = 0; $i < count($quadri); $i++) {
+                        echo 
+                    '<div class="col-md-4">
+                        <h5 class="text-center">
+                            <a href<strong>'. utf8_encode($quadri[$i][1]) .'</strong>
+                        </h5>
+                        <img class="img-responsive btn" href="#quadro'. $i .'" data-toggle="modal" src="'. utf8_encode($quadri[$i][4]) .'" alt=""> 
+                        <div class="modal fade" id="quadro'. $i .'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header modal-header-success">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <img class="img-responsive" src="'. utf8_encode($quadri[$i][4]) .'">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="text-center">
+                            <br/>
+                        </h5>
+                        </br>
+                    </div>';
+                    }
+                    ?>
                     <div class="col-md-4">
                         <h5 class="text-center">
                             <strong>Titolo quadro</strong>
                         </h5>
-                        <img class="img-responsive btn" href="#success" data-toggle="modal" src="img/slide-1.jpg" alt=""> 
-                        <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <img class="img-responsive btn" href="#quadro" data-toggle="modal" src="img/slide-1.jpg" alt=""> 
+                        <div class="modal fade" id="quadro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header modal-header-success">
