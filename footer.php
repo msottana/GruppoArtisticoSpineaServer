@@ -11,7 +11,7 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 text-right">
                 <p>Seguici su:
-                    <a href="http://facebook.com" target="_blank" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/gruppoartisticospinea.it?fref=ts" target="_blank" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
                     <a href="http://plus.google.com" target="_blank" class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
                     <a href="http://twitter.com" target="_blank" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                 </p>
