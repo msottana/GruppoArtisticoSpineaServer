@@ -87,13 +87,18 @@
                         <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22374.584715611916!2d12.1582911!3d45.493507150000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eca0f598818eb%3A0xdd3c2dd33777520f!2sSpinea+VE!5e0!3m2!1sit!2sit!4v1429950037528"></iframe>
                     </div>
                     <div class="col-md-4">
-                        <p>Numero:
+                        <p>Numero:</p>
+                        <p>
                             <strong> <?php echo utf8_encode($gruppo[0][4]) ?></strong>
                         </p>
-                        <p>Email:
+                        <br>
+                        <p>Email: </p>
+                        <p>
                             <strong><a href="<?php echo "mailto:" . ($gruppo[0][5]) ?>"><?php echo utf8_encode($gruppo[0][5]) ?></a></strong>
                         </p>
-                        <p>Indirizzo:
+                        <br>
+                        <p>Indirizzo:</p>
+                        <p>
                             <strong> <?php echo utf8_encode($gruppo[0][3]) ?></strong>
                         </p>
                     </div>
