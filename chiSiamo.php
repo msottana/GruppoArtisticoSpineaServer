@@ -125,10 +125,9 @@
                     <div class="col-md-4">
                         <p>Numero:
                             <strong> <?php echo utf8_encode($gruppo[0][4]) ?></strong>
-                            <?php echo utf8_encode($gruppo[0][5]) ?>
                         </p>
                         <p>Email:
-                            <strong><a href="<?php echo "mailto:".($gruppo[0][5]) ?>"></a></strong>
+                            <strong><a href="<?php echo "mailto:".($gruppo[0][5]) ?>"><?php echo utf8_encode($gruppo[0][5]) ?></a></strong>
                         </p>
                         <p>Indirizzo:
                             <strong> <?php echo utf8_encode($gruppo[0][3]) ?></strong>
