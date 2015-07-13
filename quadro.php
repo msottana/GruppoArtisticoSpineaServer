@@ -84,22 +84,26 @@
         </nav>
 
         <div class="container">
-            <?php
-            require_once 'ClassiPHP/EstraiDati.php';
-            $estrai = new EstraiDati();
-            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "iDPittori", $_GET["idPittore"], PDO::FETCH_NUM);
-            ?>
+
             <div class="row">
                 <div class="box">
                     <div class="col-lg-12">
+
+                        <?php
+                        require_once 'ClassiPHP/EstraiDati.php';
+                        $estrai = new EstraiDati();
+                        $quadro = $estrai->estraiContenutoCondizione("*", "Quadri", "iDQuadri", $_GET["idQuadro"], PDO::FETCH_NUM);
+                        ?>
+
                         <hr>
-                        <h2 class="intro-text text-center">Artista
-                            <strong><?php echo utf8_encode($pittore[0][1]) . " " . utf8_encode($pittore[0][2]) ?></strong>
+                        <h2 class="intro-text text-center">Dipinto
+                            <strong><?php echo utf8_encode($quadro[0][1]) ?></strong>
                         </h2>
                         <hr>
-                        <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
+                        <img class="img-responsive img-border img-center dipinto" src="<?php echo utf8_encode($quadro[0][4]) ?>" alt="">
                         <hr class="visible-xs">
-                        <p><?php echo utf8_encode($pittore[0][3]) ?></p>
+                        <br/>
+                        <p><?php echo utf8_encode($quadro[0][3]) ?></p>
                     </div>
                 </div>
             </div>
@@ -108,48 +112,8 @@
                 <div class="box">
                     <div class="col-lg-12">
                         <hr>
-                        <h2 class="intro-text text-center"><?php echo utf8_encode($pittore[0][1]) . " " . utf8_encode($pittore[0][2]) ?>
-                            <strong>Galleria</strong>
-                        </h2>
-                        <hr>
-
-                    </div>
-                    <!--un quadro-->
-                    <?php
-                    $quadri = $estrai->estraiContenutoCondizione("*", "Quadri", "Pittori_idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
-                    for ($i = 0; $i < count($quadri); $i++) {
-                        echo 
-                    '<div class="col-md-4">
-                        <h5 class="text-center">
-                            <a href="quadro.php?idQuadro='. $quadri[$i][0] .'"><strong>'. utf8_encode($quadri[$i][1]) .'</strong></a>
-                        </h5>
-                        <img class="img-responsive btn" href="#quadro'. $i .'" data-toggle="modal" src="'. utf8_encode($quadri[$i][4]) .'" alt=""> 
-                        <div class="modal fade" id="quadro'. $i .'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header modal-header-success">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        <img class="img-responsive" src="'. utf8_encode($quadri[$i][4]) .'">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="text-center">
-                            <br/>
-                        </h5>
-                        </br>
-                    </div>';
-                    }
-                    ?>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="box">
-                    <div class="col-lg-12">
-                        <hr>
-                        <h2 class="intro-text text-center">Informazioni
-                            <strong>Aggiuntive</strong>
+                        <h2 class="intro-text text-center">Eventuali
+                            <strong>Informazioni Aggiuntive</strong>
                         </h2>
                         <hr>
                         <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
@@ -157,7 +121,6 @@
                     </div>
                 </div>
             </div>
-
 
         </div>
         <!-- /.container -->
