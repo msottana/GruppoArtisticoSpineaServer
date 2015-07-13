@@ -61,9 +61,10 @@
                             <strong><?php echo utf8_encode($pittore[0][1]) . " " . utf8_encode($pittore[0][2]) ?></strong>
                         </h2>
                         <hr>
-                        <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
+                        <img class="img-responsive img-border img-left fotoPittore" src="<?php echo utf8_encode($pittore[0][5]) ?>" alt="">
                         <hr class="visible-xs">
                         <p><?php echo utf8_encode($pittore[0][3]) ?></p>
+                        <p class="text-right"><strong><?php echo utf8_encode($pittore[0][4]) ?></strong></p>
                     </div>
                 </div>
             </div>
