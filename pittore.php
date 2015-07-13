@@ -51,7 +51,7 @@
             <?php
             require_once 'ClassiPHP/EstraiDati.php';
             $estrai = new EstraiDati();
-            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "iDPittori", $_GET["idPittore"], PDO::FETCH_NUM);
+            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
             ?>
             <div class="row">
                 <div class="box">
