@@ -102,9 +102,9 @@
                             <strong>Gruppo Artistico Spinea</strong>
                         </h2>
                         <hr>
-                        <img class="img-responsive img-border img-left" src=" '. utf8_encode($gruppo[1][1]) . ' " alt="">
+                        <img class="img-responsive img-border img-left" src=" '. utf8_encode($gruppo[0][1]) . ' " alt="">
                         <hr class="visible-xs">
-                        <p> '. utf8_encode($gruppo[1][2]) . '</p>
+                        <p> '. utf8_encode($gruppo[0][2]) . '</p>
 
                     </div>
                 </div>
@@ -125,13 +125,13 @@
                     </div>
                     <div class="col-md-4">
                         <p>Numero:
-                            <strong>'. utf8_encode($gruppo[1][4]) .'</strong>
+                            <strong>'. utf8_encode($gruppo[0][4]) .'</strong>
                         </p>
                         <p>Email:
-                            <strong><a href="mailto:'. utf8_encode($gruppo[1][5]) .'"></a></strong>
+                            <strong><a href="mailto: '. utf8_encode($gruppo[0][5]).' "></a></strong>
                         </p>
                         <p>Indirizzo:
-                            <strong>'. utf8_encode($gruppo[1][3]) .'</strong>
+                            <strong>'. utf8_encode($gruppo[0][3]) .'</strong>
                         </p>
                     </div>
                     <div class="clearfix"></div>
