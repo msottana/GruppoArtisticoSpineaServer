@@ -16,10 +16,10 @@
 
         <!-- Custom CSS -->
         <link href="css/business-casual.css" rel="stylesheet">
-        
+
         <!-- Font-Awesome CSS -->
         <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        
+
         <!-- Nostri Custom CSS -->
         <link href="css/custom.css" rel="stylesheet">
 
@@ -40,14 +40,11 @@
 
         <!--<div class="brand">Gruppo Artistico Spinea</div>
         <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>-->
-        
-        <div>
-            <a href="index.html">
-                <img class="img-responsive img-full" src="img/logoDefinitivo.jpg" alt="">
-            </a>
-        </div>
 
-                <!-- Navigation -->
+        <!-- Logo -->
+        <?php require("logo.php"); ?>
+
+        <!-- Navigation -->
         <?php require("navbar.php"); ?>
 
         <div class="container">
@@ -71,9 +68,9 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
+
+
+
             <div class="row">
                 <div class="box">
                     <div class="col-lg-12">
@@ -84,11 +81,11 @@
                         <hr>
                         <?php
                         $eventi_has_quadri = $estrai->estraiContenutoCondizione("*", "Eventi_has_Quadri", "Eventi_idEventi", $_GET["idEvento"], PDO::FETCH_NUM);
-                        
+
                         for ($i = 0; $i < count($eventi_has_quadri); $i++) {
                             $quadri = $estrai->estraiContenutoCondizione("*", "Quadri", "idQuadri", $eventi_has_quadri[$i][1], PDO::FETCH_NUM);
                             $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[0][6], PDO::FETCH_NUM);
-                            echo 
+                            echo
                             '<div class="col-md-4">
                         <h5 class="text-center">
                             <a href="quadro.php?idQuadro=' . $quadri[0][0] . '"><strong>' . utf8_encode($quadri[0][1]) . '</strong></a>
@@ -110,9 +107,9 @@
                         </br>
                     </div>';
                         }
-                    ?>
+                        ?>
                     </div>
-                    
+
 
                 </div>
             </div>
@@ -133,7 +130,7 @@
                     <div class="col-md-6">
                         <p>Indirizzo:
                             <strong>
-                               <?php echo utf8_encode($evento[0][3]) ?></strong>
+                                <?php echo utf8_encode($evento[0][3]) ?></strong>
                         </p>
                         <br>
                         <p>Data di inizio:
@@ -153,7 +150,7 @@
         </div>
         <!-- /.container -->
 
-                <!-- footer -->
+        <!-- footer -->
         <?php require("footer.php"); ?>
 
         <!-- jQuery -->
@@ -164,9 +161,9 @@
 
         <!-- Script to Activate the Carousel -->
         <script>
-        $('.carousel').carousel({
-            interval: 5000 //changes the speed
-        })
+            $('.carousel').carousel({
+                interval: 5000 //changes the speed
+            })
         </script>
 
     </body>
