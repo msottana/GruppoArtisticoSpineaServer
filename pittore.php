@@ -54,8 +54,8 @@
                 <div class="box">
                     <div class="col-lg-12">
                         <hr>
-                        <h2 class="intro-text text-center">Artista
-                            <strong><?php echo utf8_encode($pittore[0][1]) . " " . utf8_encode($pittore[0][2]) ?></strong>
+                        <h2 class="intro-text text-center"> <?php echo utf8_encode($pittore[0][1]) ?>
+                            <strong><?php echo " " . utf8_encode($pittore[0][2]) ?></strong>
                         </h2>
                         <hr>
                         <img class="img-responsive img-border img-left fotoPittore" src="<?php echo utf8_encode($pittore[0][5]) ?>" alt="">
@@ -80,18 +80,18 @@
                     <?php
                     $quadri = $estrai->estraiContenutoCondizione("*", "Quadri", "Pittori_idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
                     for ($i = 0; $i < count($quadri); $i++) {
-                        echo 
-                    '<div class="col-md-4">
+                        echo
+                        '<div class="col-md-4">
                         <h5 class="text-center">
-                            <a href="quadro.php?idQuadro='. $quadri[$i][0] .'"><strong>'. utf8_encode($quadri[$i][1]) .'</strong></a>
+                            <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . utf8_encode($quadri[$i][1]) . '</strong></a>
                         </h5>
-                        <img class="img-responsive btn" href="#quadro'. $i .'" data-toggle="modal" src="'. utf8_encode($quadri[$i][4]) .'" alt=""> 
-                        <div class="modal fade" id="quadro'. $i .'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <img class="img-responsive btn" href="#quadro' . $i . '" data-toggle="modal" src="' . utf8_encode($quadri[$i][4]) . '" alt=""> 
+                        <div class="modal fade" id="quadro' . $i . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header modal-header-success">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        <img class="img-responsive" src="'. utf8_encode($quadri[$i][4]) .'">
+                                        <img class="img-responsive" src="' . utf8_encode($quadri[$i][4]) . '">
                                     </div>
                                 </div>
                             </div>
