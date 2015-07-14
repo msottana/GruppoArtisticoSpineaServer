@@ -16,10 +16,10 @@
 
         <!-- Custom CSS -->
         <link href="css/business-casual.css" rel="stylesheet">
-        
+
         <!-- Font-Awesome CSS -->
         <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        
+
         <!-- Nostri Custom CSS -->
         <link href="css/custom.css" rel="stylesheet">
 
@@ -40,7 +40,7 @@
 
         <!--<div class="brand">Gruppo Artistico Spinea</div>
         <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>-->
-        
+
         <!-- Logo -->
         <?php require("logo.php"); ?>
 
@@ -82,7 +82,6 @@
                             </a>
                         </div>
                         </br>
-                        <h1 class="brand-name">Gruppo Artistico Spinea</h1>
                         <hr class="tagline-divider">
                         <h2>
                             <small>
@@ -103,10 +102,10 @@
                     <div class="col-lg-4">
                         <img class="img-responsive img-border img-left" src="img/lorettasilvestri/8.jpg" alt="">
                     </div>
-                        <hr class="visible-xs">
-                        <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
-                        <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    <hr class="visible-xs">
+                    <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
+                    <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
                 </div>
             </div>
 
@@ -138,9 +137,9 @@
 
         <!-- Script to Activate the Carousel -->
         <script>
-        $('.carousel').carousel({
-            interval: 5000 //changes the speed
-        })
+            $('.carousel').carousel({
+                interval: 5000 //changes the speed
+            })
         </script>
 
     </body>
