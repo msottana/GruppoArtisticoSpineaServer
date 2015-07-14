@@ -83,29 +83,32 @@
                         </h2>
                         <hr>
                         <?php
-                        $quadri = $estrai->estraiContenutoCondizione("*", "Quadri", "Eventi_idEventi", $_GET["idEvento"], PDO::FETCH_NUM);
-                        for ($i = 0; $i < count($quadri); $i++) {
+                        $eventi_has_quadri = $estrai->estraiContenutoCondizione("*", "Eventi_has_Quadri", "Eventi_idEventi", $_GET["idEvento"], PDO::FETCH_NUM);
+                        
+                        for ($i = 0; $i < count($eventi_has_quadri); $i++) {
+                            $quadri = $estrai->estraiContenutoCondizione("*", "Quadri", "idQuadri", $eventi_has_quadri[$i][1], PDO::FETCH_NUM);
+                            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[0][6], PDO::FETCH_NUM);
                             echo 
-                        '<div class="col-md-4">
-                            <h5 class="text-center">
-                                <a href="quadro.php?idQuadro='. $quadri[$i][0] .'"><strong>'. utf8_encode($quadri[$i][1]) .'</strong></a>
-                            </h5>
-                            <img class="img-responsive btn" href="#quadro'. $i .'" data-toggle="modal" src="'. utf8_encode($quadri[$i][4]) .'" alt=""> 
-                            <div class="modal fade" id="quadro'. $i .'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header modal-header-success">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <img class="img-responsive" src="'. utf8_encode($quadri[$i][4]) .'">
-                                        </div>
+                            '<div class="col-md-4">
+                        <h5 class="text-center">
+                            <a href="quadro.php?idQuadro=' . $quadri[0][0] . '"><strong>' . utf8_encode($quadri[0][1]) . '</strong></a>
+                        </h5>
+                        <img class="img-responsive btn" href="#quadro' . 0 . '" data-toggle="modal" src="' . utf8_encode($quadri[0][4]) . '" alt=""> 
+                        <div class="modal fade" id="quadro' . 0 . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header modal-header-success">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <img class="img-responsive" src="' . utf8_encode($quadri[0][4]) . '">
                                     </div>
                                 </div>
                             </div>
-                            <h5 class="text-center">
-                                <br/>
-                            </h5>
-                            </br>
-                        </div>';
+                        </div>
+                        <h5 class="text-center">
+                            <a href="pittore.php?idPittore=' . $pittore[0][0] . '">' . $pittore[0][1] . ' ' . $pittore[0][2] . '</a>
+                        </h5>
+                        </br>
+                    </div>';
                         }
                     ?>
                     </div>
