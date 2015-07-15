@@ -62,14 +62,14 @@
                 <div class="box">
                     <div class="col-lg-12">
                         <hr>
-                        <h2 class="intro-text text-center">' . utf8_encode($pittori[$i][1]) .
-                    ' <strong>' . utf8_encode($pittori[$i][2]) . '</strong>' .
+                        <h2 class="intro-text text-center">' . iconv('cp1252', 'utf-8', $pittori[$i][1]) .
+                    ' <strong>' . iconv('cp1252', 'utf-8', $pittori[$i][2]) . '</strong>' .
                     '</h2>
                         <hr>
                         <img class="img-responsive img-border img-left fotoPittore" src="' . utf8_encode($pittori[$i][5]) . '" alt="">' .
                     '<hr class="visible-xs">
-                        <p>' . utf8_encode($pittori[$i][3]) . '</p><p class="text-right"><strong>' . utf8_encode($pittori[$i][4]) . '</strong></p>' .
-                    '<a href="pittore.php?idPittore=' . utf8_encode($pittori[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Galleria pittore</button></a>
+                        <p>' . iconv('cp1252', 'utf-8', $pittori[$i][3]) . '</p><p class="text-right"><strong>' . iconv('cp1252', 'utf-8', $pittori[$i][4]) . '</strong></p>' .
+                    '<a href="pittore.php?idPittore=' . iconv('cp1252', 'utf-8', $pittori[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Galleria pittore</button></a>
                         </br>
                     </div>
                 </div>

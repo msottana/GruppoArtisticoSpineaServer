@@ -65,13 +65,13 @@
 
                         <hr>
                         <h2 class="intro-text text-center">Dipinto
-                            <strong><?php echo utf8_encode($quadro[0][1]) ?></strong>
+                            <strong><?php echo iconv('cp1252', 'utf-8', $quadro[0][1]) ?></strong>
                         </h2>
                         <hr>
-                        <img class="img-responsive img-border img-center dipinto" src="<?php echo utf8_encode($quadro[0][4]) ?>" alt="">
+                        <img class="img-responsive img-border img-center dipinto" src="<?php echo iconv('cp1252', 'utf-8', $quadro[0][4]) ?>" alt="">
                         <hr class="visible-xs">
                         <br/>
-                        <p><?php echo utf8_encode($quadro[0][3]) ?></p>
+                        <p><?php echo iconv('cp1252', 'utf-8', $quadro[0][3]) ?></p>
                     </div>
                 </div>
             </div>

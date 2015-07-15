@@ -57,7 +57,7 @@
                         <img class="img-responsive img-border img-left fotoPittore" src="img/404/Obi_Wan.jpg" alt="">
                         <hr class="visible-xs">
                         <p>La pagina che stai cercando non è presente su questo server o non è al momento disponibile. Se il problema persiste ti consigliamo di contattare gli amministratori del sito.</p>
-                        <p class="text-right"><strong>Web Server</strong>
+                        <p class="text-right"><strong>Gli amministratori</strong>
                         </p>
                     </div>
                 </div>

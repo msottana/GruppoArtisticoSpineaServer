@@ -62,13 +62,13 @@
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <strong>' . utf8_encode($eventi[$i][1]) . '</strong>
+                        <strong>' . iconv('cp1252', 'utf-8', $eventi[$i][1]) . '</strong>
                     </h2>
                     <hr>
                     <img class="img-responsive img-border img-left" src="' . ($eventi[$i][6]) . '" alt="">
                     <hr class="visible-xs">
-                    <p>' . utf8_encode($eventi[$i][2]) . '</p>
-                    ' . '<a href="evento.php?idEvento=' . utf8_encode($eventi[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Vai all’evento</button></a>
+                    <p>' . iconv('cp1252', 'utf-8', $eventi[$i][2]) . '</p>
+                    ' . '<a href="evento.php?idEvento=' . iconv('cp1252', 'utf-8', $eventi[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Vai all’evento</button></a>
                     </br>
                 </div>
             </div>

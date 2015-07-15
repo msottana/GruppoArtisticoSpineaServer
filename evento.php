@@ -65,13 +65,13 @@
                     <div class="col-lg-12">
                         <hr>
                         <h2 class="intro-text text-center">Evento
-                            <strong><?php echo utf8_encode($evento[0][1]) ?></strong>
+                            <strong><?php echo iconv('cp1252', 'utf-8', $evento[0][1]) ?></strong>
                         </h2>
                         <hr>
-                        <img class="img-responsive img-border img-left" src="<?php echo ($evento[0][6]) ?>" alt="">
+                        <img class="img-responsive img-border img-left" src="<?php echo iconv('cp1252', 'utf-8', $evento[0][6]) ?>" alt="">
                         <hr class="visible-xs">
                         <br/>
-                        <p><?php echo ($evento[0][2]) ?></p>
+                        <p><?php echo iconv('cp1252', 'utf-8', $evento[0][2]) ?></p>
                     </div>
                 </div>
             </div>
@@ -95,21 +95,21 @@
                             echo
                             '<div class="col-md-4">
                         <h5 class="text-center">
-                            <a href="quadro.php?idQuadro=' . $quadri[0][0] . '"><strong>' . utf8_encode($quadri[0][1]) . '</strong></a>
+                            <a href="quadro.php?idQuadro=' . $quadri[0][0] . '"><strong>' . iconv('cp1252', 'utf-8', $quadri[0][1]) . '</strong></a>
                         </h5>
-                        <img class="img-responsive btn" href="#quadro' . 0 . '" data-toggle="modal" src="' . utf8_encode($quadri[0][4]) . '" alt=""> 
+                        <img class="img-responsive btn" href="#quadro' . 0 . '" data-toggle="modal" src="' . iconv('cp1252', 'utf-8', $quadri[0][4]) . '" alt=""> 
                         <div class="modal fade" id="quadro' . 0 . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header modal-header-success">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        <img class="img-responsive" src="' . utf8_encode($quadri[0][4]) . '">
+                                        <img class="img-responsive" src="' . iconv('cp1252', 'utf-8', $quadri[0][4]) . '">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <h5 class="text-center">
-                            <a href="pittore.php?idPittore=' . $pittore[0][0] . '">' . $pittore[0][1] . ' ' . $pittore[0][2] . '</a>
+                            <a href="pittore.php?idPittore=' . $pittore[0][0] . '">' . iconv('cp1252', 'utf-8', $pittore[0][1]) . ' ' . iconv('cp1252', 'utf-8', $pittore[0][2]) . '</a>
                         </h5>
                         </br>
                     </div>';
@@ -137,17 +137,17 @@
                     <div class="col-md-6">
                         <p>Indirizzo:
                             <strong>
-                                <?php echo utf8_encode($evento[0][3]) ?></strong>
+                                <?php echo iconv('cp1252', 'utf-8', $evento[0][3]) ?></strong>
                         </p>
                         <br>
                         <p>Data di inizio:
                             <strong>
-                                <?php echo utf8_encode($evento[0][4]) ?></strong>
+                                <?php echo iconv('cp1252', 'utf-8', $evento[0][4]) ?></strong>
                         </p>
                         <br>
                         <p>L'evento terminerá il:
                             <strong>
-                                <?php echo utf8_encode($evento[0][5]) ?></strong>
+                                <?php echo iconv('cp1252', 'utf-8', $evento[0][5]) ?></strong>
                         </p>
                     </div>
                     <div class="clearfix"></div>

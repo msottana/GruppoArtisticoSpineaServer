@@ -102,17 +102,17 @@
                     <div class="col-md-4">
                         <p>Numero:</p>
                         <p>
-                            <strong> <?php echo @utf8_encode($gruppo[0][4]) ?></strong>
+                            <strong> <?php echo @iconv('cp1252', 'utf-8', $gruppo[0][4]) ?></strong>
                         </p>
                         <br>
                         <p>Email: </p>
                         <p>
-                            <strong><a href="<?php echo "mailto:" . (@$gruppo[0][5]) ?>"><?php echo @utf8_encode($gruppo[0][5]) ?></a></strong>
+                            <strong><a href="<?php echo "mailto:" . (@$gruppo[0][5]) ?>"><?php echo @iconv('cp1252', 'utf-8', $gruppo[0][5]) ?></a></strong>
                         </p>
                         <br>
                         <p>Indirizzo:</p>
                         <p>
-                            <strong> <?php echo @xutf8_encode($gruppo[0][3]) ?></strong>
+                            <strong> <?php echo @iconv('cp1252', 'utf-8', $gruppo[0][3]) ?></strong>
                         </p>
                     </div>
                     <div class="clearfix"></div>

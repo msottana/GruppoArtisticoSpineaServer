@@ -113,13 +113,13 @@
                     <div class="col-lg-12">
                         <hr>
                         <h2 class="intro-text text-center">
-                            <strong>' . utf8_encode($eventi[$i][1]) . '</strong>
+                            <strong>' . iconv('cp1252', 'utf-8', $eventi[$i][1]) . '</strong>
                         </h2>
                         <hr>
                         <img class="img-responsive img-border img-left" src="' . ($eventi[$i][6]) . '" alt="">
                         <hr class="visible-xs">
-                        <p>' . utf8_encode($eventi[$i][2]) . '</p>
-                        ' . '<a href="evento.php?idEvento=' . utf8_encode($eventi[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Vai all’evento</button></a>
+                        <p>' . iconv('cp1252', 'utf-8', $eventi[$i][2]) . '</p>
+                        ' . '<a href="evento.php?idEvento=' . iconv('cp1252', 'utf-8', $eventi[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Vai all’evento</button></a>
                         </br>
                     </div>
                         ';
@@ -151,9 +151,9 @@
                             echo
                             '<div class="col-md-4">
                         <h5 class="text-center">
-                            <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . utf8_encode($quadri[$i][1]) . '</strong></a>
+                            <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . iconv('cp1252', 'utf-8', $quadri[$i][1]) . '</strong></a>
                         </h5>
-                        <img class="img-responsive btn" href="#quadro' . $i . '" data-toggle="modal" src="' . utf8_encode($quadri[$i][4]) . '" alt=""> 
+                        <img class="img-responsive btn" href="#quadro' . $i . '" data-toggle="modal" src="' . iconv('cp1252', 'utf-8', $quadri[$i][4]) . '" alt=""> 
                         <div class="modal fade" id="quadro' . $i . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -165,7 +165,7 @@
                             </div>
                         </div>
                         <h5 class="text-center">
-                            <a href="pittore.php?idPittore=' . $pittore[0][0] . '">' . $pittore[0][1] . ' ' . $pittore[0][2] . '</a>
+                            <a href="pittore.php?idPittore=' . $pittore[0][0] . '">' . iconv('cp1252', 'utf-8', $pittore[0][1]) . ' ' . iconv('cp1252', 'utf-8', $pittore[0][2]) . '</a>
                         </h5>
                         </br>
                     </div>';
