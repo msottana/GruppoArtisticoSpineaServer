@@ -55,7 +55,11 @@
                 $estrai = new EstraiDati();
                 $eventi = $estrai->estraiContenuto("Eventi");
                 if (count($eventi) == 0) {
-                    echo '<p class="text-center">Non è presente nessun evento da visualizzare.</p>';
+                    echo '<div class="row">
+            <div class="box">
+                <p class="text-center">Non ci sono eventi da visualizzare.</p>
+            </div>
+        </div>';
                 }
                 for ($i = 0; $i < count($eventi); $i++) {
                     echo
