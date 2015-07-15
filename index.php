@@ -95,17 +95,77 @@
             <div class="row">
                 <div class="box">
                     <hr>
-                    <h2 class="intro-text text-center">Titolo di un
-                        <strong>nuovo quadro</strong>
+                    <h2 class="intro-text text-center">Nuovi
+                        <strong>Eventi</strong>
                     </h2>
                     <hr>
-                    <div class="col-lg-4">
-                        <img class="img-responsive img-border img-left" src="img/lorettasilvestri/8.jpg" alt="">
+
+                    <?php
+                    require_once 'ClassiPHP/EstraiDati.php';
+                    $estrai = new EstraiDati();
+                    $eventi = $estrai->estraiContenutoOrderBy("Eventi", "DataInserimento");
+                    $numEventi = count($eventi);
+                    $numEventi = (5 < $numEventi) ? 5 : $numEventi;
+                    for ($i = 0; $i < $numEventi; $i++) {
+                        echo
+                        '
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>' . utf8_encode($eventi[$i][1]) . '</strong>
+                        </h2>
+                        <hr>
+                        <img class="img-responsive img-border img-left" src="' . ($eventi[$i][6]) . '" alt="">
+                        <hr class="visible-xs">
+                        <p>' . utf8_encode($eventi[$i][2]) . '</p>
+                        ' . '<a href="evento.php?idEvento=' . utf8_encode($eventi[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Vai all’evento</button></a>
+                        </br>
                     </div>
-                    <hr class="visible-xs">
-                    <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
-                    <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                        ';
+                    }
+                    ?>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="box">
+                    <hr>
+                    <h2 class="intro-text text-center">Nuovi
+                        <strong>Quadri</strong>
+                    </h2>
+                    <hr>
+                    <!--un quadro-->
+                    <?php
+                    require_once 'ClassiPHP/EstraiDati.php';
+                    $quadri = $estrai->estraiContenutoOrderBy("Quadri", "DataInserimento");
+                    $numQuadri = count($quadri);
+                    $numQuadri = (5 < $numQuadri) ? 5 : $numQuadri;
+                    for ($i = 0; $i < $numQuadri; $i++) {
+                        $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);
+                        echo
+                        '<div class="col-md-4">
+                        <h5 class="text-center">
+                            <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . utf8_encode($quadri[$i][1]) . '</strong></a>
+                        </h5>
+                        <img class="img-responsive btn" href="#quadro' . $i . '" data-toggle="modal" src="' . utf8_encode($quadri[$i][4]) . '" alt=""> 
+                        <div class="modal fade" id="quadro' . $i . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header modal-header-success">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <img class="img-responsive" src="' . utf8_encode($quadri[$i][4]) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="text-center">
+                            <a href="pittore.php?idPittore=' . $pittore[0][0] . '">' . $pittore[0][1] . ' ' . $pittore[0][2] . '</a>
+                        </h5>
+                        </br>
+                    </div>';
+                    }
+                    ?>
                 </div>
             </div>
 
@@ -139,7 +199,7 @@
         <script>
             $('.carousel').carousel({
                 interval: 5000 //changes the speed
-            })
+            });
         </script>
 
     </body>

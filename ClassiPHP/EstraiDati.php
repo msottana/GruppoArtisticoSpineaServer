@@ -75,11 +75,45 @@ class EstraiDati {
     }
 
     /*
+     * Metodo che estrae dal database il contenuto di una tabella applicando la clausola ORDER BY DESC
+     */
+
+    function estraiContenutoOrderBy($tabella, $campoOrder) {
+        $query = 'SELECT * FROM ' . $tabella . ' ORDER BY ' . $campoOrder . ' DESC';
+        $ret = array(); //<<---MOD. CARLO istruzione era $ret;
+        $i = 0;
+        $stmt = $this->dbPDO->query($query);
+        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+            $ret[$i] = $row;
+            $i++;
+        }
+        return $ret;
+    }
+
+    /*
      *  Metodo che estrae dal database il contenuto di una tabella applicandoci una calusola WHERE
      */
 
     function estraiContenutoCondizione($campi, $tabella, $campoFiltro, $valore, $fetch) {
         $query = 'SELECT ' . $campi . ' FROM ' . $tabella . ' WHERE ' . $campoFiltro . ' = :valore';
+        $ret = array();
+        $i = 0;
+        $stmt = $this->dbPDO->prepare($query);
+        $stmt->bindValue(':valore', $valore);
+        $stmt->execute();
+        while ($row = $stmt->fetch($fetch)) {
+            $ret[$i] = $row;
+            $i++;
+        }
+        return $ret;
+    }
+
+    /*
+     *  Metodo che estrae dal database il contenuto di una tabella applicandoci una calusola WHERE e una clausola ORDER BY
+     */
+
+    function estraiContenutoCondizioneOrderBy($campi, $tabella, $campoFiltro, $valore, $campoOrder, $fetch) {
+        $query = 'SELECT ' . $campi . ' FROM ' . $tabella . ' WHERE ' . $campoFiltro . ' = :valore' . ' ORDER BY ' . $campoOrder . ' DESC';
         $ret = array();
         $i = 0;
         $stmt = $this->dbPDO->prepare($query);
