@@ -46,9 +46,16 @@
 
         <div class="container">
             <?php
-            require_once 'ClassiPHP/EstraiDati.php';
-            $estrai = new EstraiDati();
-            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
+            try {
+                require_once 'ClassiPHP/EstraiDati.php';
+                $estrai = new EstraiDati();
+                $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
+                if (count($pittore) == 0) {
+                    header('Location: 404/404.php');
+                }
+            } catch (Exception $e) {
+                header('Location: 404/404.php');
+            }
             ?>
             <div class="row">
                 <div class="box">
@@ -78,10 +85,11 @@
                     </div>
                     <!--un quadro-->
                     <?php
-                    $quadri = $estrai->estraiContenutoCondizione("*", "Quadri", "Pittori_idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
-                    for ($i = 0; $i < count($quadri); $i++) {
-                        echo
-                        '<div class="col-md-4">
+                    try {
+                        $quadri = $estrai->estraiContenutoCondizione("*", "Quadri", "Pittori_idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
+                        for ($i = 0; $i < count($quadri); $i++) {
+                            echo
+                            '<div class="col-md-4">
                         <h5 class="text-center">
                             <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . utf8_encode($quadri[$i][1]) . '</strong></a>
                         </h5>
@@ -101,6 +109,9 @@
                         </h5>
                         </br>
                     </div>';
+                        }
+                    } catch (Exception $e) {
+                        echo '<p class="text-center">Si è verificato un errore nel caricamento dei quadri.</p>';
                     }
                     ?>
                 </div>

@@ -101,6 +101,7 @@
                     <hr>
 
                     <?php
+                    try{
                     require_once 'ClassiPHP/EstraiDati.php';
                     $estrai = new EstraiDati();
                     $eventi = $estrai->estraiContenutoOrderBy("Eventi", "DataInserimento");
@@ -123,6 +124,9 @@
                     </div>
                         ';
                     }
+                    }catch(Exception $e) {
+                        echo '<p class="text-center">Si è verificato un errore nel caricamento degli eventi.</p>';
+                    }
                     ?>
 
                 </div>
@@ -137,14 +141,15 @@
                     <hr>
                     <!--un quadro-->
                     <?php
-                    require_once 'ClassiPHP/EstraiDati.php';
-                    $quadri = $estrai->estraiContenutoOrderBy("Quadri", "DataInserimento");
-                    $numQuadri = count($quadri);
-                    $numQuadri = (5 < $numQuadri) ? 5 : $numQuadri;
-                    for ($i = 0; $i < $numQuadri; $i++) {
-                        $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);
-                        echo
-                        '<div class="col-md-4">
+                    try {
+                        require_once 'ClassiPHP/EstraiDati.php';
+                        $quadri = $estrai->estraiContenutoOrderBy("Quadri", "DataInserimento");
+                        $numQuadri = count($quadri);
+                        $numQuadri = (5 < $numQuadri) ? 5 : $numQuadri;
+                        for ($i = 0; $i < $numQuadri; $i++) {
+                            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);
+                            echo
+                            '<div class="col-md-4">
                         <h5 class="text-center">
                             <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . utf8_encode($quadri[$i][1]) . '</strong></a>
                         </h5>
@@ -164,6 +169,9 @@
                         </h5>
                         </br>
                     </div>';
+                        }
+                    } catch (Exception $e) {
+                        echo '<p class="text-center">Si è verificato un errore nel caricamento dei quadri.</p>';
                     }
                     ?>
                 </div>

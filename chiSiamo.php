@@ -50,9 +50,25 @@
         <div class="container">
 
             <?php
-            require_once 'ClassiPHP/EstraiDati.php';
-            $estrai = new EstraiDati();
-            $gruppo = $estrai->estraiContenuto("Gruppo");
+            try {
+                require_once 'ClassiPHP/EstraiDati.php';
+                $estrai = new EstraiDati();
+                $gruppo = $estrai->estraiContenuto("Gruppo");
+            } catch (Exception $e) {
+                echo ''
+                . '<div class="row">
+                <div class="box">
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Errore</strong>
+                        </h2>
+                        <hr>
+                        <p class="text-center">Si è verificato un errore nel caricamento delle informazioni.</p>
+                        </div>
+                    </div>
+                </div>';
+            }
             ?>
             <div class="row">
                 <div class="box">
@@ -62,9 +78,9 @@
                             <strong>Gruppo Artistico Spinea</strong>
                         </h2>
                         <hr>
-                        <img class="img-responsive img-border img-left" src="  <?php echo utf8_encode($gruppo[0][1]) ?> " alt="">
+                        <img class="img-responsive img-border img-left" src="  <?php echo @utf8_encode($gruppo[0][1]) ?> " alt="">
                         <hr class="visible-xs">
-                        <p> <?php echo utf8_encode($gruppo[0][2]) ?> </p>
+                        <p> <?php echo @utf8_encode($gruppo[0][2]) ?> </p>
 
                     </div>
                 </div>
@@ -86,17 +102,17 @@
                     <div class="col-md-4">
                         <p>Numero:</p>
                         <p>
-                            <strong> <?php echo utf8_encode($gruppo[0][4]) ?></strong>
+                            <strong> <?php echo @utf8_encode($gruppo[0][4]) ?></strong>
                         </p>
                         <br>
                         <p>Email: </p>
                         <p>
-                            <strong><a href="<?php echo "mailto:" . ($gruppo[0][5]) ?>"><?php echo utf8_encode($gruppo[0][5]) ?></a></strong>
+                            <strong><a href="<?php echo "mailto:" . (@$gruppo[0][5]) ?>"><?php echo @utf8_encode($gruppo[0][5]) ?></a></strong>
                         </p>
                         <br>
                         <p>Indirizzo:</p>
                         <p>
-                            <strong> <?php echo utf8_encode($gruppo[0][3]) ?></strong>
+                            <strong> <?php echo @xutf8_encode($gruppo[0][3]) ?></strong>
                         </p>
                     </div>
                     <div class="clearfix"></div>

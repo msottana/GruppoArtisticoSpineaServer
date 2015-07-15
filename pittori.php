@@ -2,9 +2,9 @@
 <html lang="it">
 
     <head>
-        
+
         <meta charset="utf-8">
-        
+
         <!--
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,35 +44,51 @@
 
         <!-- Logo -->
         <?php require("logo.php"); ?>
-        
+
         <!-- Navigation -->
         <?php require("navbar.php"); ?>
 
         <div class="container">
 
             <?php
-            require_once 'ClassiPHP/EstraiDati.php';
-            $estrai = new EstraiDati();
-            $pittori = $estrai->estraiContenuto("Pittori");
-            for ($i = 0; $i < count($pittori); $i++) {
-                echo
-                '
+            try {
+                require_once 'ClassiPHP/EstraiDati.php';
+                $estrai = new EstraiDati();
+                $pittori = $estrai->estraiContenuto("Pittori");
+                for ($i = 0; $i < count($pittori); $i++) {
+                    echo
+                    '
             <div class="row">
                 <div class="box">
                     <div class="col-lg-12">
                         <hr>
                         <h2 class="intro-text text-center">' . utf8_encode($pittori[$i][1]) .
-                        ' <strong>'. utf8_encode($pittori[$i][2]) . '</strong>' .
+                    ' <strong>' . utf8_encode($pittori[$i][2]) . '</strong>' .
                     '</h2>
                         <hr>
                         <img class="img-responsive img-border img-left fotoPittore" src="' . utf8_encode($pittori[$i][5]) . '" alt="">' .
                     '<hr class="visible-xs">
-                        <p>' . utf8_encode($pittori[$i][3]) . '</p><p class="text-right"><strong>'. utf8_encode($pittori[$i][4]) .'</strong></p>'.
-                    '<a href="pittore.php?idPittore='. utf8_encode($pittori[$i][0]) .'"><button type="button" class="btn btn-default bottoneDX">Galleria pittore</button></a>
+                        <p>' . utf8_encode($pittori[$i][3]) . '</p><p class="text-right"><strong>' . utf8_encode($pittori[$i][4]) . '</strong></p>' .
+                    '<a href="pittore.php?idPittore=' . utf8_encode($pittori[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Galleria pittore</button></a>
                         </br>
                     </div>
                 </div>
             </div>';
+                }
+            } catch (Exception $e) {
+                echo ''
+                . '<div class="row">
+                <div class="box">
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Errore</strong>
+                        </h2>
+                        <hr>
+                        <p class="text-center">Si è verificato un errore nel caricamento dei pittori.</p>
+                        </div>
+                    </div>
+                </div>';
             }
             ?>
 

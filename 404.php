@@ -4,15 +4,12 @@
     <head>
 
         <meta charset="utf-8">
-        <!--
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Eventi - Gruppo Artistico Spinea</title>
+        <title>Loretta Silvestri</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -49,47 +46,23 @@
 
         <div class="container">
 
-            <?php
-            try {
-                require_once 'ClassiPHP/EstraiDati.php';
-                $estrai = new EstraiDati();
-                $eventi = $estrai->estraiContenuto("Eventi");
-                for ($i = 0; $i < count($eventi); $i++) {
-                    echo
-                    '
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">
-                        <strong>' . utf8_encode($eventi[$i][1]) . '</strong>
-                    </h2>
-                    <hr>
-                    <img class="img-responsive img-border img-left" src="' . ($eventi[$i][6]) . '" alt="">
-                    <hr class="visible-xs">
-                    <p>' . utf8_encode($eventi[$i][2]) . '</p>
-                    ' . '<a href="evento.php?idEvento=' . utf8_encode($eventi[$i][0]) . '"><button type="button" class="btn btn-default bottoneDX">Vai all’evento</button></a>
-                    </br>
-                </div>
-            </div>
-        </div>';
-                }
-            } catch (Exception $e) {
-                echo ''
-                . '<div class="row">
+            <div class="row">
                 <div class="box">
                     <div class="col-lg-12">
                         <hr>
-                        <h2 class="intro-text text-center">
-                            <strong>Errore</strong>
+                        <h2 class="intro-text text-center">"Questa non è la pagina che state cercando"
+                            <strong>Errore 404</strong>
                         </h2>
                         <hr>
-                        <p class="text-center">Si è verificato un errore nel caricamento degli eventi.</p>
-                        </div>
+                        <img class="img-responsive img-border img-left fotoPittore" src="img/404/Obi_Wan.jpg" alt="">
+                        <hr class="visible-xs">
+                        <p>La pagina che stai cercando non è presente su questo server o non è al momento disponibile. Se il problema persiste ti consigliamo di contattare gli amministratori del sito.</p>
+                        <p class="text-right"><strong>Web Server</strong>
+                        </p>
                     </div>
-                </div>';
-            }
-            ?>
+                </div>
+            </div>
+
         </div>
         <!-- /.container -->
 
@@ -101,6 +74,13 @@
 
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
+
+        <!-- Script to Activate the Carousel -->
+        <script>
+            $('.carousel').carousel({
+                interval: 5000 //changes the speed
+            })
+        </script>
 
     </body>
 

@@ -49,9 +49,16 @@
 
         <div class="container">
             <?php
-            require_once 'ClassiPHP/EstraiDati.php';
-            $estrai = new EstraiDati();
-            $evento = $estrai->estraiContenutoCondizione("*", "Eventi", "iDEventi", $_GET["idEvento"], PDO::FETCH_NUM);
+            try {
+                require_once 'ClassiPHP/EstraiDati.php';
+                $estrai = new EstraiDati();
+                $evento = $estrai->estraiContenutoCondizione("*", "Eventi", "iDEventi", $_GET["idEvento"], PDO::FETCH_NUM);
+                if (count($evento) == 0) {
+                    header('Location: 404/404.php');
+                }
+            } catch (Exception $e) {
+                header('Location: 404/404.php');
+            }
             ?>
             <div class="row">
                 <div class="box">

@@ -62,13 +62,14 @@
 
                         <!--un quadro-->
                         <?php
-                        require_once 'ClassiPHP/EstraiDati.php';
-                        $estrai = new EstraiDati();
-                        $quadri = $estrai->estraiContenuto("Quadri");
-                        for ($i = 0; $i < count($quadri); $i++) {
-                            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);
-                            echo
-                            '<div class="col-md-4">
+                        try {
+                            require_once 'ClassiPHP/EstraiDati.php';
+                            $estrai = new EstraiDati();
+                            $quadri = $estrai->estraiContenuto("Quadri");
+                            for ($i = 0; $i < count($quadri); $i++) {
+                                $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);
+                                echo
+                                '<div class="col-md-4">
                         <h5 class="text-center">
                             <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . utf8_encode($quadri[$i][1]) . '</strong></a>
                         </h5>
@@ -87,6 +88,21 @@
                             <a href="pittore.php?idPittore=' . $pittore[0][0] . '">' . $pittore[0][1] . ' ' . $pittore[0][2] . '</a>
                         </h5>
                         </br>
+                    </div>';
+                            }
+                        } catch (Exception $e) {
+                            echo ''
+                            . '<div class="row">
+                
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Errore</strong>
+                        </h2>
+                        <hr>
+                        <p class="text-center">Si è verificato un errore nel caricamento dei quadri.</p>
+                        </div>
+                    
                     </div>';
                         }
                         ?>
