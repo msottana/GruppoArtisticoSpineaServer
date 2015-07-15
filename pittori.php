@@ -92,26 +92,6 @@
             }
             ?>
 
-            <div class="row">
-                <div class="box">
-                    <div class="col-lg-12">
-                        <hr>
-                        <h2 class="intro-text text-center">Sergio
-                            <strong>Vozza</strong>
-                        </h2>
-                        <hr>
-                        <img class="img-responsive img-border img-left fotoPittore" src="img/sergiovozza/foto_sergio.jpg" alt="">
-                        <hr class="visible-xs">
-                        <p>Artista dal portato gradevole, sia per quanto riguarda la forma e sia per quanto concerne l’uso del colore, Sergio si caratterizza per una serie di opere segnate da un evidente, ma oltremodo originale, richiamo alle matrici surrealistiche e metafisiche. Attraverso queste due accezioni stilistiche, l’autore, da felice ed intuitivo autodidatta, è riuscito ad elaborare, nel corso degli anni, un proprio linguaggio, caratterizzato da visioni immaginifiche, ma non prive di una certa adesione al realismo contemporaneo.
-                            Fra architetture classiche, scene di vita quotidiana, strutture inverosimili, si sviluppano diversi soggetti spesso resi bidimensionalmente, ma sempre dipinti in modo tale da accentuare la semplicità di ogni singolo elemento strutturale. Ogni particolare di qualsiasi quadro è reso accuratamente, nulla è lasciato al caso; protagonista indiscusso è inoltre il colore, concepito come una sorta di materia da spalmare delicatamente, senza che possa urtare con gli stessi soggetti o con le architetture raffigurate. I temi scelti sono la chiara espressione dei sentimenti provati dall’artista, il quale riesce, attraverso i propri occhi e la propria mente, ad evocare l’universo circostante, caratterizzato spesso da una esasperante quotidianità; ma in ognuno dei lavori è anche possibile percepire una altra dimensione in cui a primeggiare sono la fantasia e l’incanto. </p>
-                        <a href="sergioVozza.html"><button type="button" class="btn btn-default bottoneDX">Galleria pittore</button></a>
-                        </br>
-                    </div>
-                </div>
-            </div>
-
-
-
         </div>
         <!-- /.container -->
 

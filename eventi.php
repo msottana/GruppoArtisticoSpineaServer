@@ -54,6 +54,9 @@
                 require_once 'ClassiPHP/EstraiDati.php';
                 $estrai = new EstraiDati();
                 $eventi = $estrai->estraiContenuto("Eventi");
+                if (count($eventi) == 0) {
+                    echo '<p class="text-center">Non è presente nessun evento da visualizzare.</p>';
+                }
                 for ($i = 0; $i < count($eventi); $i++) {
                     echo
                     '

@@ -56,7 +56,7 @@
                             $estrai = new EstraiDati();
                             $quadro = $estrai->estraiContenutoCondizione("*", "Quadri", "iDQuadri", $_GET["idQuadro"], PDO::FETCH_NUM);
                             if (count($quadro) == 0) {
-                                header('Location: 404/404.php');
+                                throw new Exception();
                             }
                         } catch (Exception $e) {
                             header('Location: 404/404.php');

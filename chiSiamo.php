@@ -54,6 +54,7 @@
                 require_once 'ClassiPHP/EstraiDati.php';
                 $estrai = new EstraiDati();
                 $gruppo = $estrai->estraiContenuto("Gruppo");
+                if (count($gruppo) == 0) throw new Exception();
             } catch (Exception $e) {
                 echo ''
                 . '<div class="row">

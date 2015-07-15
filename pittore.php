@@ -51,10 +51,10 @@
                 $estrai = new EstraiDati();
                 $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $_GET["idPittore"], PDO::FETCH_NUM);
                 if (count($pittore) == 0) {
-                    header('Location: 404/404.php');
+                    throw new Exception();
                 }
             } catch (Exception $e) {
-                header('Location: 404/404.php');
+                header('Location: 404.php');
             }
             ?>
             <div class="row">

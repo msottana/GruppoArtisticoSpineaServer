@@ -54,7 +54,7 @@
                 $estrai = new EstraiDati();
                 $evento = $estrai->estraiContenutoCondizione("*", "Eventi", "iDEventi", $_GET["idEvento"], PDO::FETCH_NUM);
                 if (count($evento) == 0) {
-                    header('Location: 404/404.php');
+                    throw new Exception();
                 }
             } catch (Exception $e) {
                 header('Location: 404/404.php');
