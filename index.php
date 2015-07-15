@@ -55,22 +55,31 @@
                         <div id="carousel-example-generic" class="carousel slide">
                             <!-- Indicators -->
                             <ol class="carousel-indicators hidden-xs">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                <?php
+                                require_once 'ClassiPHP/EstraiDati.php';
+                                $estrai = new EstraiDati();
+                                $carosello = $estrai->estraiContenuto("Carosello");
+                                echo '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
+                                for ($i = 1; $i < count($carosello); $i++) {
+                                    echo '<li data-target="#carousel-example-generic" data-slide-to="' . $carosello[$i][1] . '"></li>';
+                                }
+                                ?>
                             </ol>
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
+                                <?php
+                                echo '
                                 <div class="item active">
-                                    <img class="img-responsive img-full" src="img/angelacosta/Per%20carosello.jpg" alt="">
-                                </div>
+                                    <img class="img-responsive img-full" src="' . $carosello[0][1] . '" alt="">
+                                </div>';
+                                for ($i = 1; $i < count($carosello); $i++) {
+                                    echo '
                                 <div class="item">
-                                    <img class="img-responsive img-full" src="img/gabriellarossi/per%20carosello.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-responsive img-full" src="img/lorettasilvestri/Per%20carosello.jpg" alt="">
-                                </div>
+                                    <img class="img-responsive img-full" src="' . $carosello[$i][1] . '" alt="">
+                                </div>';
+                                }
+                                ?>
                             </div>
 
                             <!-- Controls -->
@@ -101,15 +110,13 @@
                     <hr>
 
                     <?php
-                    try{
-                    require_once 'ClassiPHP/EstraiDati.php';
-                    $estrai = new EstraiDati();
-                    $eventi = $estrai->estraiContenutoOrderBy("Eventi", "DataInserimento");
-                    $numEventi = count($eventi);
-                    $numEventi = (5 < $numEventi) ? 5 : $numEventi;
-                    for ($i = 0; $i < $numEventi; $i++) {
-                        echo
-                        '
+                    try {
+                        $eventi = $estrai->estraiContenutoOrderBy("Eventi", "DataInserimento");
+                        $numEventi = count($eventi);
+                        $numEventi = (5 < $numEventi) ? 5 : $numEventi;
+                        for ($i = 0; $i < $numEventi; $i++) {
+                            echo
+                            '
                     <div class="col-lg-12">
                         <hr>
                         <h2 class="intro-text text-center">
@@ -123,8 +130,8 @@
                         </br>
                     </div>
                         ';
-                    }
-                    }catch(Exception $e) {
+                        }
+                    } catch (Exception $e) {
                         echo '<p class="text-center">Si è verificato un errore nel caricamento degli eventi.</p>';
                     }
                     ?>
