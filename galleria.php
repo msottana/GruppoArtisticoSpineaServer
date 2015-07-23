@@ -51,11 +51,7 @@
             <div class="row">
                 <div class="box">
                     <div class="col-lg-12">
-                        <hr>
-                        <h2 class="intro-text text-center">La nostra
-                            <strong>Galleria</strong>
-                        </h2>
-                        <hr>
+
 
                     </div>
                     <div class="row">
@@ -66,8 +62,15 @@
                             require_once 'ClassiPHP/EstraiDati.php';
                             $estrai = new EstraiDati();
                             $quadri = $estrai->estraiContenuto("Quadri");
-                            if (count($quadri) == 0) {
-                                echo '<p class="text-center">Non è presente nessun quadro in galleria.</p>';
+
+                            if (count($quadri) != 0) {
+                                echo '<hr>
+                        <h2 class="intro-text text-center">La nostra
+                            <strong>Galleria</strong>
+                        </h2>
+                        <hr>';
+                            } else {
+                                throw new Exception;
                             }
                             for ($i = 0; $i < count($quadri); $i++) {
                                 $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);

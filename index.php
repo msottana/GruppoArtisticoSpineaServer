@@ -49,6 +49,29 @@
 
         <div class="container">
 
+            <?php
+            $estrai;
+            try {
+                require_once 'ClassiPHP/EstraiDati.php';
+                $estrai = new EstraiDati();
+                $carosello = $estrai->estraiContenuto("Carosello");
+            } catch (Exception $e) {
+                echo ''
+                . '<div class="row">
+                <div class="box">
+                    <div class="col-lg-12">
+                        <hr>
+                        <h2 class="intro-text text-center">
+                            <strong>Errore</strong>
+                        </h2>
+                        <hr>
+                        <p class="text-center">Si è verificato un errore nel caricamento delle informazioni.</p>
+                        </div>
+                    </div>
+                </div>';
+            }
+            ?>
+
             <div class="row">
                 <div class="box">
                     <div class="col-lg-12 text-center">
@@ -56,12 +79,13 @@
                             <!-- Indicators -->
                             <ol class="carousel-indicators hidden-xs">
                                 <?php
-                                require_once 'ClassiPHP/EstraiDati.php';
-                                $estrai = new EstraiDati();
-                                $carosello = $estrai->estraiContenuto("Carosello");
-                                echo '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
-                                for ($i = 1; $i < count($carosello); $i++) {
-                                    echo '<li data-target="#carousel-example-generic" data-slide-to="' . $carosello[$i][1] . '"></li>';
+                                try {
+                                    echo '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
+                                    for ($i = 1; $i < count(@$carosello); $i++) {
+                                        echo '<li data-target="#carousel-example-generic" data-slide-to="' . @$carosello[$i][1] . '"></li>';
+                                    }
+                                } catch (Exception $e) {
+                                    
                                 }
                                 ?>
                             </ol>
@@ -71,12 +95,12 @@
                                 <?php
                                 echo '
                                 <div class="item active">
-                                    <img class="img-responsive img-full" src="' . $carosello[0][1] . '" alt="">
+                                    <img class="img-responsive img-full" src="' . @$carosello[0][1] . '" alt="">
                                 </div>';
-                                for ($i = 1; $i < count($carosello); $i++) {
+                                for ($i = 1; $i < count(@$carosello); $i++) {
                                     echo '
                                 <div class="item">
-                                    <img class="img-responsive img-full" src="' . $carosello[$i][1] . '" alt="">
+                                    <img class="img-responsive img-full" src="' . @$carosello[$i][1] . '" alt="">
                                 </div>';
                                 }
                                 ?>
@@ -111,12 +135,15 @@
 
                     <?php
                     try {
-                        $eventi = $estrai->estraiContenutoOrderBy("Eventi", "DataInserimento");
-                        $numEventi = count($eventi);
-                        $numEventi = (5 < $numEventi) ? 5 : $numEventi;
-                        for ($i = 0; $i < $numEventi; $i++) {
-                            echo
-                            '
+                        if (empty($estrai)) {
+                            throw new Exception;
+                        } else {
+                            $eventi = $estrai->estraiContenutoOrderBy("Eventi", "DataInserimento");
+                            $numEventi = count($eventi);
+                            $numEventi = (5 < $numEventi) ? 5 : $numEventi;
+                            for ($i = 0; $i < $numEventi; $i++) {
+                                echo
+                                '
                     <div class="col-lg-12">
                         <hr>
                         <h2 class="intro-text text-center">
@@ -130,6 +157,7 @@
                         </br>
                     </div>
                         ';
+                            }
                         }
                     } catch (Exception $e) {
                         echo '<p class="text-center">Si è verificato un errore nel caricamento degli eventi.</p>';
@@ -149,14 +177,16 @@
                     <!--un quadro-->
                     <?php
                     try {
-                        require_once 'ClassiPHP/EstraiDati.php';
-                        $quadri = $estrai->estraiContenutoOrderBy("Quadri", "DataInserimento");
-                        $numQuadri = count($quadri);
-                        $numQuadri = (5 < $numQuadri) ? 5 : $numQuadri;
-                        for ($i = 0; $i < $numQuadri; $i++) {
-                            $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);
-                            echo
-                            '<div class="col-md-4">
+                        if (empty($estrai)) {
+                            throw new Exception;
+                        } else {
+                            $quadri = $estrai->estraiContenutoOrderBy("Quadri", "DataInserimento");
+                            $numQuadri = count($quadri);
+                            $numQuadri = (5 < $numQuadri) ? 5 : $numQuadri;
+                            for ($i = 0; $i < $numQuadri; $i++) {
+                                $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);
+                                echo
+                                '<div class="col-md-4">
                         <h5 class="text-center">
                             <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . iconv('cp1252', 'utf-8', $quadri[$i][1]) . '</strong></a>
                         </h5>
@@ -176,6 +206,7 @@
                         </h5>
                         </br>
                     </div>';
+                            }
                         }
                     } catch (Exception $e) {
                         echo '<p class="text-center">Si è verificato un errore nel caricamento dei quadri.</p>';
