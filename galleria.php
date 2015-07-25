@@ -62,7 +62,6 @@
                             require_once 'ClassiPHP/EstraiDati.php';
                             $estrai = new EstraiDati();
                             $quadri = $estrai->estraiContenuto("Quadri");
-
                             if (count($quadri) != 0) {
                                 echo '<hr>
                         <h2 class="intro-text text-center">La nostra
@@ -75,7 +74,7 @@
                             for ($i = 0; $i < count($quadri); $i++) {
                                 $pittore = $estrai->estraiContenutoCondizione("*", "Pittori", "idPittori", $quadri[$i][6], PDO::FETCH_NUM);
                                 echo
-                                '<div class="col-md-4">
+                                '<div class="col-md-'. (4*$quadri[$i][2]) .'">
                         <h5 class="text-center">
                             <a href="quadro.php?idQuadro=' . $quadri[$i][0] . '"><strong>' . iconv('cp1252', 'utf-8', $quadri[$i][1]) . '</strong></a>
                         </h5>
